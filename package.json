@@ -1,0 +1,18 @@
+{
+    "name": "com.jobus.extensions",
+    "displayName": "Jobus Extensions",
+    "version": "1.0.0",
+    "description": "Handy extensions for general Unity development.",
+    "keywords": [
+        "essentials",
+        "extensions",
+        "math",
+        "utility",
+        "helper"
+    ],
+    "author": {
+        "name": "Jobus",
+        "url": "https://github.com/Jobus0/Unity-Extensions"
+    },
+    "unity": "2020.3"
+}
