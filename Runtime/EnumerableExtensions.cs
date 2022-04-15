@@ -58,7 +58,7 @@ namespace Jobus.Extensions
         }
 
         /// <summary>
-        /// Pick a random object from the list.
+        /// Return a random object from the list using UnityEngine.Random.
         /// </summary>
         public static T Random<T>(this IList<T> list)
         {
