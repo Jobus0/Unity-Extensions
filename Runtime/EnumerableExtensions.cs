@@ -91,12 +91,20 @@ namespace Jobus.Extensions
             return set.Add(item);
         }
 
+        private static StringBuilder toArrayStringStringBuilderCache;
+        
         /// <summary>
         /// Returns a string listing each value in the array.
         /// </summary>
         public static string ToArrayString<T>(this IEnumerable<T> items, bool skipType = false, bool skipBrackets = false)
         {
-            StringBuilder builder = new StringBuilder();
+            if (toArrayStringStringBuilderCache == null)
+                toArrayStringStringBuilderCache = new StringBuilder();
+            
+            StringBuilder builder = toArrayStringStringBuilderCache;
+            
+            builder.Clear();
+            
             if (!skipType)
                 builder.Append(items);
 
