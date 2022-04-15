@@ -58,19 +58,6 @@ namespace Jobus.Extensions
         }
 
         /// <summary>
-        /// Pick a random object from the array.
-        /// </summary>
-        public static T Random<T>(this T[] array)
-        {
-            int length = array.Length;
-
-            if (length == 0)
-                return default;
-
-            return array[UnityEngine.Random.Range(0, length)];
-        }
-
-        /// <summary>
         /// Pick a random object from the list.
         /// </summary>
         public static T Random<T>(this IList<T> list)
