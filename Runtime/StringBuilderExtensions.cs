@@ -12,15 +12,9 @@ namespace Jobus.Extensions
         /// <param name="colorHex">For example "FFFFFF" for white.</param>
         public static StringBuilder Append(this StringBuilder builder, string str, string colorHex)
         {
-            if (char.IsDigit(colorHex[0]))
-                builder.Append("<color=#");
-            else
-                builder.Append("<color=");
-            
-            builder.Append(colorHex);
-            builder.Append(">");
+            builder.StartColor(colorHex);
             builder.Append(str);
-            builder.Append("</color>");
+            builder.EndColor();
             return builder;
         }
     
@@ -40,7 +34,7 @@ namespace Jobus.Extensions
         /// </summary>
         public static StringBuilder Append(this StringBuilder builder, string str, Color color)
         {
-            return builder.Append(str, ColorUtility.ToHtmlStringRGBA(color));
+            return builder.Append(str, '#' + ColorUtility.ToHtmlStringRGBA(color));
         }
     
         /// <summary>
@@ -48,7 +42,7 @@ namespace Jobus.Extensions
         /// </summary>
         public static StringBuilder AppendLine(this StringBuilder builder, string str, Color color)
         {
-            return builder.AppendLine(str, ColorUtility.ToHtmlStringRGBA(color));
+            return builder.AppendLine(str, '#' + ColorUtility.ToHtmlStringRGBA(color));
         }
 
         /// <summary>
@@ -58,12 +52,9 @@ namespace Jobus.Extensions
         public static StringBuilder StartColor(this StringBuilder builder, string colorHex)
         {
             builder.Append("<color=");
+            builder.Append(colorHex);
+            builder.Append(">");
 
-            if (colorHex[0] != '#')
-                builder.Append('#');
-        
-            builder.Append(colorHex).Append(">");
-        
             return builder;
         }
 
@@ -72,7 +63,7 @@ namespace Jobus.Extensions
         /// </summary>
         public static StringBuilder StartColor(this StringBuilder builder, Color color)
         {
-            return builder.StartColor(ColorUtility.ToHtmlStringRGBA(color));
+            return builder.StartColor('#' + ColorUtility.ToHtmlStringRGBA(color));
         }
 
         /// <summary>
