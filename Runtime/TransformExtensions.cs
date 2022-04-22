@@ -32,12 +32,11 @@ namespace Jobus.Extensions
         /// </summary>
         /// <param name="path">Hierarchical path to parent.</param>
         /// <param name="worldPositionStays">If true, the parent-relative position, scale and rotation is modified such that the object keeps the same world space position, rotation and scale as before.</param>
-        public static void SetPath(this Transform current, string path, bool worldPositionStays)
+        public static void SetPath(this Transform current, string path, bool worldPositionStays = true)
         {
-            string[] steps = path.Split('/');
-            Transform parent = GameObject.Find(steps[0]).transform;
-            for (int i = 1; i < steps.Length; i++)
-                parent = parent.Find(steps[i]);
+            int rootIndex = path.IndexOf('/');
+            Transform parent = GameObject.Find(path.Substring(0, rootIndex)).transform;
+            parent = parent.Find(path.Substring(rootIndex + 1));
             current.SetParent(parent, worldPositionStays);
         }
 
@@ -47,12 +46,10 @@ namespace Jobus.Extensions
         /// <param name="relativeTo">A transform the path will be relative to.</param>
         /// <param name="path">Hierarchical path to parent.</param>
         /// <param name="worldPositionStays">If true, the parent-relative position, scale and rotation is modified such that the object keeps the same world space position, rotation and scale as before.</param>
-        public static void SetPath(this Transform current, Transform relativeTo, string path, bool worldPositionStays)
+        public static void SetPath(this Transform current, Transform relativeTo, string path, bool worldPositionStays = true)
         {
-            string[] steps = path.Split('/');
             Transform parent = relativeTo;
-            for (int i = 0; i < steps.Length; i++)
-                parent = parent.Find(steps[i]);
+            parent = parent.Find(path);
             current.SetParent(parent, worldPositionStays);
         }
 
