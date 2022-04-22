@@ -90,10 +90,10 @@ namespace Jobus.Extensions
         /// <summary>
         /// Encapsulates the string in a <color></color> markup format for use with rich text UIs.
         /// </summary>
-        /// <param name="colorHex">For example "FFFFFF" for white.</param>
+        /// <param name="colorHex">For example "#ffffff" or "white" for white.</param>
         public static string WithColor(this string str, string colorHex)
         {
-            return $"<color=#{colorHex}>{str}</color>";
+            return $"<color={colorHex}>{str}</color>";
         }
 
         /// <summary>
@@ -101,7 +101,7 @@ namespace Jobus.Extensions
         /// </summary>
         public static string WithColor(this string str, Color color)
         {
-            return WithColor(str, ColorUtility.ToHtmlStringRGBA(color));
+            return WithColor(str, '#' + ColorUtility.ToHtmlStringRGBA(color));
         }
 
         /// <summary>
