@@ -5,7 +5,7 @@ namespace Jobus.Extensions
     public static class LayerExtensions
     {
         /// <summary>
-        /// Check if the layermask contains a specific layer.
+        /// Check if the LayerMask contains a specific layer index.
         /// </summary>
         public static bool HasLayer(this LayerMask layerMask, int layerIndex)
         {
