@@ -35,5 +35,15 @@ namespace Jobus.Extensions
                     child.gameObject.SetLayer(layerIndex, true);
             }
         }
+        
+        /// <summary>
+        /// Set GameObject's layer by name. Optionally set layer of all children as well.
+        /// </summary>
+        /// <param name="layerName">Name of the layer to set it to.</param>
+        /// <param name="includeChildren">Set layer of all its children.</param>
+        public static void SetLayer(this GameObject gameObject, string layerName, bool includeChildren = false)
+        {
+            SetLayer(gameObject, LayerMask.NameToLayer(layerName), includeChildren);
+        }
     }
 }
