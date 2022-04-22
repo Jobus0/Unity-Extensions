@@ -6,13 +6,6 @@ namespace Jobus.Extensions
 {
     public static class StringBuilderExtensions
     {
-        public static StringBuilder LineAppend(this StringBuilder builder, string str)
-        {
-            builder.Append(Environment.NewLine);
-            builder.Append(str);
-            return builder;
-        }
-    
         /// <summary>
         /// Append string using hex color-tagged rich text.
         /// </summary>
@@ -41,18 +34,7 @@ namespace Jobus.Extensions
             builder.Append(Environment.NewLine);
             return builder;
         }
-    
-        /// <summary>
-        /// Append new line, then append string using hex color-tagged rich text.
-        /// </summary>
-        /// <param name="colorHex">For example "FFFFFF" for white.</param>
-        public static StringBuilder LineAppend(this StringBuilder builder, string str, string colorHex)
-        {
-            builder.Append(Environment.NewLine);
-            builder.Append(str, colorHex);
-            return builder;
-        }
-    
+
         /// <summary>
         /// Append string using color-tagged rich text.
         /// </summary>
@@ -67,14 +49,6 @@ namespace Jobus.Extensions
         public static StringBuilder AppendLine(this StringBuilder builder, string str, Color color)
         {
             return builder.AppendLine(str, ColorUtility.ToHtmlStringRGBA(color));
-        }
-    
-        /// <summary>
-        /// Append new line, then append string using color-tagged rich text.
-        /// </summary>
-        public static StringBuilder LineAppend(this StringBuilder builder, string str, Color color)
-        {
-            return builder.LineAppend(str, ColorUtility.ToHtmlStringRGBA(color));
         }
 
         /// <summary>
