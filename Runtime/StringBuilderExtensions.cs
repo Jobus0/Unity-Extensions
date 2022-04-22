@@ -9,7 +9,7 @@ namespace Jobus.Extensions
         /// <summary>
         /// Append string using hex color-tagged rich text.
         /// </summary>
-        /// <param name="colorHex">For example "FFFFFF" for white.</param>
+        /// <param name="colorHex">For example "#ffffff" or "white" for white.</param>
         public static StringBuilder Append(this StringBuilder builder, string str, string colorHex)
         {
             builder.StartColor(colorHex);
@@ -21,7 +21,7 @@ namespace Jobus.Extensions
         /// <summary>
         /// Append string line using hex color-tagged rich text.
         /// </summary>
-        /// <param name="colorHex">For example "FFFFFF" for white.</param>
+        /// <param name="colorHex">For example "#ffffff" or "white" for white.</param>
         public static StringBuilder AppendLine(this StringBuilder builder, string str, string colorHex)
         {
             builder.Append(str, colorHex);
@@ -48,7 +48,7 @@ namespace Jobus.Extensions
         /// <summary>
         /// Append start of rich text color tag. Should be combined with EndColor().
         /// </summary>
-        /// <param name="colorHex">For example "FFFFFF" for white.</param>
+        /// <param name="colorHex">For example "#ffffff" or "white" for white.</param>
         public static StringBuilder StartColor(this StringBuilder builder, string colorHex)
         {
             builder.Append("<color=");
