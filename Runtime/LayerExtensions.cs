@@ -11,6 +11,14 @@ namespace Jobus.Extensions
         {
             return layerMask == (layerMask | (1 << layerIndex));
         }
+        
+        /// <summary>
+        /// Check if the LayerMask contains a specific layer by name.
+        /// </summary>
+        public static bool HasLayer(this LayerMask layerMask, string layerName)
+        {
+            return layerMask == (layerMask | (1 << LayerMask.NameToLayer(layerName)));
+        }
 
         /// <summary>
         /// Set GameObject's layer by index. Optionally set layer of all children as well.
