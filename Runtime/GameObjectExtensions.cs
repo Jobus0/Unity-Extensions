@@ -43,6 +43,69 @@ namespace Jobus.Extensions
         }
         
         /// <summary>
+        /// Returns true and outputs component if a component of type T at index is found, false and null otherwise.
+        /// </summary>
+        /// <typeparam name="T">The type of Component to retrieve.</typeparam>
+        public static bool TryGetComponent<T>(this GameObject gameObject, int index, out T component) where T : class
+        {
+            if (index == 0)
+                return gameObject.TryGetComponent(out component);
+
+            var components = gameObject.GetComponents<T>();
+
+            if (components.Length - 1 >= index)
+            {
+                component = components[index];
+                return true;
+            }
+
+            component = null;
+            return false;
+        }
+        
+        /// <summary>
+        /// Returns true and outputs component if a component of type T at index is found, false and null otherwise.
+        /// </summary>
+        /// <typeparam name="T">The type of Component to retrieve.</typeparam>
+        public static bool TryGetComponent<T>(this Component component, int index, out T outComponent) where T : class
+        {
+            if (index == 0)
+                return component.TryGetComponent(out outComponent);
+
+            var components = component.GetComponents<T>();
+
+            if (components.Length - 1 >= index)
+            {
+                outComponent = components[index];
+                return true;
+            }
+
+            outComponent = null;
+            return false;
+        }
+        
+        /// <summary>
+        /// Returns true and outputs component if a component of type T at index is found, false and null otherwise.
+        /// </summary>
+        /// <typeparam name="T">The type of Component to retrieve.</typeparam>
+        public static bool TryGetComponent<T>(this IMonoBehaviour monoBehaviour, int index, out T component) where T : class
+        {
+            if (index == 0)
+                return monoBehaviour.TryGetComponent(out component);
+
+            var components = monoBehaviour.GetComponents<T>();
+
+            if (components.Length - 1 >= index)
+            {
+                component = components[index];
+                return true;
+            }
+
+            component = null;
+            return false;
+        }
+        
+        /// <summary>
         /// Adds a new component by coping the values of an existing one. Warning: Uses reflection (low performance).
         /// </summary>
         public static T AddComponentCopy<T>(this GameObject gameObject, T componentToCopy) where T : Component
