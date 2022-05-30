@@ -2,7 +2,7 @@
 Handy extensions for general Unity development.
 
 ## About
-This is a fairly large collection of extensions that I've accumulated over many years of Unity development. The goal is to reduce boilerplate code and simplify development without adding too much clutter, while being consistent with Unity's API style.
+This is a collection of extensions that I've accumulated over many years of Unity development. The goal is to reduce boilerplate code and simplify development without adding too much clutter, while being consistent with Unity's API style.
 
 Nearly all extensions have XML documentation, except for where the method name alone is clear enough.
 
