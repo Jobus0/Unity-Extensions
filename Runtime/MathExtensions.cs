@@ -79,41 +79,65 @@ namespace Jobus.Extensions
         /// <summary>
         /// Get the largest component of the vector.
         /// </summary>
-        public static float Max(this Vector3 vector3, bool absolute = false)
+        public static float Max(this Vector3 vector3)
         {
-            if (absolute)
-                return Mathf.Max(Mathf.Abs(vector3.x), Mathf.Abs(vector3.y), Mathf.Abs(vector3.z));
             return Mathf.Max(vector3.x, vector3.y, vector3.z);
         }
 
         /// <summary>
         /// Get the largest component of the vector.
         /// </summary>
-        public static float Max(this Vector2 vector2, bool absolute = false)
+        public static float Max(this Vector2 vector2)
         {
-            if (absolute)
-                return Mathf.Max(Mathf.Abs(vector2.x), Mathf.Abs(vector2.y));
             return Mathf.Max(vector2.x, vector2.y);
         }
 
         /// <summary>
         /// Get the smallest component of the vector.
         /// </summary>
-        public static float Min(this Vector3 vector3, bool absolute = false)
+        public static float Min(this Vector3 vector3)
         {
-            if (absolute)
-                return Mathf.Min(Mathf.Abs(vector3.x), Mathf.Abs(vector3.y), Mathf.Abs(vector3.z));
             return Mathf.Min(vector3.x, vector3.y, vector3.z);
         }
 
         /// <summary>
         /// Get the smallest component of the vector.
         /// </summary>
-        public static float Min(this Vector2 vector2, bool absolute = false)
+        public static float Min(this Vector2 vector2)
         {
-            if (absolute)
-                return Mathf.Min(Mathf.Abs(vector2.x), Mathf.Abs(vector2.y));
             return Mathf.Min(vector2.x, vector2.y);
+        }
+        
+        /// <summary>
+        /// Get the largest absolute component of the vector.
+        /// </summary>
+        public static float MaxAbsolute(this Vector3 vector3)
+        {
+            return Mathf.Max(Mathf.Abs(vector3.x), Mathf.Abs(vector3.y), Mathf.Abs(vector3.z));
+        }
+
+        /// <summary>
+        /// Get the largest absolute component of the vector.
+        /// </summary>
+        public static float MaxAbsolute(this Vector2 vector2)
+        {
+            return Mathf.Max(Mathf.Abs(vector2.x), Mathf.Abs(vector2.y));
+        }
+
+        /// <summary>
+        /// Get the smallest absolute component of the vector.
+        /// </summary>
+        public static float MinAbsolute(this Vector3 vector3)
+        {
+            return Mathf.Min(Mathf.Abs(vector3.x), Mathf.Abs(vector3.y), Mathf.Abs(vector3.z));
+        }
+
+        /// <summary>
+        /// Get the smallest absolute component of the vector.
+        /// </summary>
+        public static float MinAbsolute(this Vector2 vector2)
+        {
+            return Mathf.Min(Mathf.Abs(vector2.x), Mathf.Abs(vector2.y));
         }
 
         /// <summary>
